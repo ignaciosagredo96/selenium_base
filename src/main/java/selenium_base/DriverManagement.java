@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverManagement {
 	
@@ -29,6 +31,16 @@ public class DriverManagement {
 			System.setProperty("webdriver.chrome.driver", String.valueOf(new File("").getAbsolutePath())+"\\drivers\\chromedriver.exe");
 			disableSeleniumLogs();
 			driver = new ChromeDriver();
+			break;
+		case "firefox":
+			System.setProperty("webdriver.gecko.driver", String.valueOf(new File("").getAbsolutePath())+"\\drivers\\geckodriver.exe");
+			disableSeleniumLogs();
+			driver = new FirefoxDriver();
+			break;
+		case "edge":
+			System.setProperty("webdriver.edge.driver", String.valueOf(new File("").getAbsolutePath())+"\\drivers\\geckodriver.exe");
+			disableSeleniumLogs();
+			driver = new EdgeDriver();
 			break;
 		default:
 			throw new Exception("No se ha seleccionado un navegador");
